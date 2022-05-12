@@ -1,5 +1,9 @@
 // declaration of main container
 const app = document.getElementById('row')
+app.style.cssText =
+    `
+        padding-top: 80px
+    `
 
 var request = new XMLHttpRequest()
 
@@ -45,6 +49,10 @@ request.onload = function () {
             `
                 flex: 0 1 auto;
             `
+
+        // link for img url
+        const imgLink = document.createElement('a')
+        imgLink.href = post.featured_media
 
         // link for title url
         const titleLink = document.createElement('a')
@@ -107,11 +115,12 @@ request.onload = function () {
         // putting pieces of the card together
         titleLink.appendChild(postTitle)
         footer.appendChild(postType)
+        imgLink.appendChild(coverImage)
 
         // addind the card to the view
         app.appendChild(card)
         card.appendChild(header)
-        card.appendChild(coverImage)
+        card.appendChild(imgLink)
         card.appendChild(titleLink)
         card.appendChild(datePosted)
         document.createElement('br')
