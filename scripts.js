@@ -69,6 +69,7 @@ request.onload = function () {
 
         // author name as link
         const author = document.createElement('a')
+        author.href = post._embedded['author'][0].link
         author.setAttribute('id', 'author')
 
         // show post type
