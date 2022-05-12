@@ -28,6 +28,7 @@ request.onload = function () {
                 border-radius: 5px;
                 display: flex;
                 flex-wrap: wrap;
+                box-shadow: 2px 2px 2px 2px #aaaaaa8f;
             `
         // header with horizontal devision
         const header = document.createElement('div')
@@ -88,7 +89,9 @@ request.onload = function () {
                 background-color: white; 
                 border-top: 1px dashed rgba(150, 150, 150, 0.87);
                 flex: 0 1 auto; 
-                width: 100%
+                width: 100%;
+                align-items: center;
+                justify-content: center;
             `
         // date declaration with months
         const postDate = new Date(post.date)
