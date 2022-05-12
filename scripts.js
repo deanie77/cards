@@ -1,5 +1,4 @@
 const app = document.getElementById('row')
-app.style.cssText ="position: relative;"
 
 var request = new XMLHttpRequest()
 
@@ -15,13 +14,9 @@ request.onload = function () {
         card.setAttribute('id', 'card')
         card.style.cssText = "border-top: 5px solid rgba(168, 0, 168, 0.63); border-radius: 5px;display: flex;flex-wrap: wrap;"
 
-        const header = document.createElement('h5')
+        const header = document.createElement('div')
         header.textContent = 'CLOUD AND SERVER'
-        header.style.cssText = "flex: 0 1 auto;"
-
-        const topBorder = document.createElement('hr')
-        topBorder.setAttribute('class', 'u-no-margin--top')
-        topBorder.style.cssText = "background-color: white; border-top: 1px dashed rgba(150, 150, 150, 0.87);flex: 0 1 auto;"
+        header.style.cssText = "flex: 0 1 auto; background-color: white; border-bottom: 1px dashed rgba(150, 150, 150, 0.87);width:100%; margin-bottom:10px;"
 
         const coverImage = document.createElement('img')
         coverImage.setAttribute('class', 'p-card__image')
@@ -29,7 +24,7 @@ request.onload = function () {
 
         const textArea = document.createElement('div')
         textArea.setAttribute('class', 'p-card__inner')
-        textArea.style.cssText = "flex: 1 1 auto;"
+        textArea.style.cssText = "display:flex;flex-flow:column;flex: 1 1 auto;"
 
         const titleLink = document.createElement('a')
         titleLink.href = post.link
@@ -41,13 +36,13 @@ request.onload = function () {
         author.setAttribute('id', 'author')
         author.style.cssText = "color: blue;"
 
-        const bottomBorder = document.createElement('hr')
-        bottomBorder.setAttribute('class', 'u-no-margin--bottom')
-        bottomBorder.style.cssText = "background-color: white; border-top: 1px dashed rgba(150, 150, 150, 0.87);flex: 0 1 auto;"
-
         const postType = document.createElement('h5')
-        postType.setAttribute('class', 'u-align--bottom')
-        postType.style.cssText = "flex: 0 1 auto;"
+        postType.setAttribute('class', 'u-align--bottom u-no-margin--top')
+        postType.style.cssText = "flex: 0 1 auto;margin:0;"
+
+        const footer = document.createElement('div')
+        footer.setAttribute('class', 'footer')
+        footer.style.cssText = "flex: 0 1 50px, background-color: white; border-top: 1px dashed rgba(150, 150, 150, 0.87);flex: 0 1 auto; width: 100%"
 
         const postDate = new Date(post.date)
         const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -71,13 +66,15 @@ request.onload = function () {
 
         app.appendChild(card)
         card.appendChild(header)
-        card.appendChild(topBorder)
+        //card.appendChild(topBorder)
         card.appendChild(coverImage)
         titleLink.appendChild(postTitle)
         card.appendChild(titleLink)
         card.appendChild(datePosted)
-        card.appendChild(bottomBorder)
-        card.appendChild(postType)
+        //card.appendChild(bottomBorder)
+        document.createElement('br')
+        footer.appendChild(postType)
+        card.appendChild(footer)
         
     })
   } else {
